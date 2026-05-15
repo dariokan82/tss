@@ -145,13 +145,22 @@ const SLATE = [
   {
     id: "the-pettys",
     title: "The Pettys",
-    format: "Limited Series",
+    format: "Series",
     year: "In Development",
     logline:
       "The true father-and-son story of Lee and Richard Petty — Yellowstone meets Friday Night Lights, served up at two hundred miles an hour.",
     palette: ["#1A1410", "#2A1810", "#7A3A1E", "#D06028"],
-    tag: "TS-001",
     image: "ThePettys.jpg",
+  },
+  {
+    id: "darkness-is-my-candle",
+    title: "Darkness is my Candle",
+    format: "Feature Film",
+    year: "In Development",
+    logline:
+      "A visceral true story of survival against all odds, where the light of hope must be found in the heart of darkness.",
+    palette: ["#0A0A0A", "#1A1A1A", "#331100", "#662200"],
+    image: "DarknessIsMyCandle.png",
   },
   {
     id: "running-the-amazon",
@@ -161,7 +170,6 @@ const SLATE = [
     logline:
       "1985. A mismatched band of explorers attempts to kayak the Amazon River from source to sea. Deliverance, from 18,000 feet to the Atlantic.",
     palette: ["#0F1A14", "#1A2A1E", "#3D5A3A", "#8AB060"],
-    tag: "TS-002",
     image: "RunningTheAmazon.png",
     position: "left center",
   },
@@ -173,7 +181,6 @@ const SLATE = [
     logline:
       "The true story of ex-college quarterback and stockbroker Damon West. Shawshank Redemption, for the 21st century.",
     palette: ["#15110D", "#241B14", "#5A4630", "#C28B4A"],
-    tag: "TS-003",
     image: "SixDimesAndANickel.jpg",
     position: "left center",
   },
@@ -198,7 +205,6 @@ function SlateCard({ item, index, onOpen }) {
 
         <div className="ts-slate-poster-grain" aria-hidden="true" />
         <div className="ts-slate-poster-meta">
-          <span className="ts-caption">{item.tag}</span>
           <span className="ts-caption">{item.format}</span>
         </div>
         <div className="ts-slate-poster-title">
@@ -229,7 +235,7 @@ function Slate({ onOpen }) {
             The current<br />work.
           </h2>
           <p className="ts-lead ts-section-sub">
-            Three projects in active development. Each begins with a real person, and a real reason audiences will not look away.
+            Four projects in active development. Each begins with a real person, and a real reason audiences will not look away.
           </p>
         </div>
         <div className="ts-slate-grid">
@@ -260,7 +266,7 @@ function SlateDetail({ item, onClose }) {
           <div className="ts-slate-poster-grain" aria-hidden="true" />
         </div>
         <div className="ts-modal-body">
-          <div className="ts-eyebrow">{item.tag} · {item.format}</div>
+          <div className="ts-eyebrow">{item.format}</div>
           <h3 className="ts-h1" style={{ marginTop: 8 }}>{item.title}</h3>
           <p className="ts-lead" style={{ marginTop: 16 }}>{item.logline}</p>
           <div className="ts-modal-meta">
@@ -334,9 +340,11 @@ function Founder() {
       <div className="ts-section-inner ts-founder-grid">
         <div className="ts-founder-portrait" aria-hidden="true">
           <div className="ts-founder-portrait-frame">
-            <div className="ts-founder-portrait-placeholder">
-              <span className="ts-caption">Portrait · placeholder</span>
-            </div>
+            <img 
+              src="david.png" 
+              alt="David Aaron Cohen" 
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+            />
           </div>
           <div className="ts-founder-tag">
             <span className="ts-caption">DAC · Founder &amp; CEO</span>
@@ -346,7 +354,7 @@ function Founder() {
           <div className="ts-eyebrow">The face of True Story</div>
           <h2 className="ts-h2" style={{ marginTop: 16 }}>David Aaron Cohen</h2>
           <p className="ts-lead" style={{ marginTop: 16 }}>
-            Thirty years writing and producing in Hollywood.
+            I’m building a studio to deliver the stories you cannot forget. Stories that defy gravity, that break your heart and piece it back together, then take you to heights you could never imagine: like Jack and Rose on the prow of the Titanic - hands free, reaching for the sky.
           </p>
           <p className="ts-body" style={{ marginTop: 16, color: "var(--ts-fg-2)" }}>
             Selected credits: <em>The Devil's Own</em> (Harrison Ford, Brad Pitt). <em>Friday Night Lights</em> (Billy Bob Thornton). <em>American Underdog</em> (Zachary Levi, Anna Paquin).
@@ -383,10 +391,6 @@ function Contact() {
                 <a href="mailto:info@truestorystudios.com" className="ts-h4 ts-contact-link">
                   info@truestorystudios.com
                 </a>
-              </div>
-              <div>
-                <div className="ts-caption">Phone</div>
-                <div className="ts-h4">+1 555 55 55 55</div>
               </div>
             </div>
           </div>
