@@ -149,6 +149,8 @@ const SLATE = [
     year: "In Development",
     logline:
       "The true father-and-son story of Lee and Richard Petty — Yellowstone meets Friday Night Lights, served up at two hundred miles an hour.",
+    longLogline:
+      "Before the millions in sponsorships and the global fame, there was just a father, a son, and a dirt track in Level Cross. The Pettys is the definitive story of the birth of an American dynasty—a visceral, high-stakes family drama that explores the grit and obsession required to build a legacy from the ground up, one lap at a time.",
     palette: ["#1A1410", "#2A1810", "#7A3A1E", "#D06028"],
     image: "ThePettys.jpg",
   },
@@ -159,6 +161,8 @@ const SLATE = [
     year: "In Development",
     logline:
       "A visceral true story of survival against all odds, where the light of hope must be found in the heart of darkness.",
+    longLogline:
+      "When a catastrophic event leaves a group stranded in one of the most unforgiving environments on Earth, they must confront not only the elements but the shadows within themselves. Darkness is my Candle is a haunting, cinematic journey into the human spirit's capacity for resilience, proving that even in the deepest void, hope is a choice.",
     palette: ["#0A0A0A", "#1A1A1A", "#331100", "#662200"],
     image: "DarknessIsMyCandle.png",
   },
@@ -169,6 +173,8 @@ const SLATE = [
     year: "In Development",
     logline:
       "1985. A mismatched band of explorers attempts to kayak the Amazon River from source to sea. Deliverance, from 18,000 feet to the Atlantic.",
+    longLogline:
+      "Based on the legendary source-to-sea expedition, Running the Amazon follows a team of explorers as they navigate the world's most dangerous river. From the thin air of the Andes to the dense, unpredictable jungle, this is a story of physical endurance, psychological breaking points, and the raw, untamed power of nature.",
     palette: ["#0F1A14", "#1A2A1E", "#3D5A3A", "#8AB060"],
     image: "RunningTheAmazon.png",
     position: "left center",
@@ -180,6 +186,8 @@ const SLATE = [
     year: "In Development",
     logline:
       "The true story of ex-college quarterback and stockbroker Damon West. Shawshank Redemption, for the 21st century.",
+    longLogline:
+      "Damon West had it all—the talent, the looks, and a promising career. But a meth addiction led to a string of robberies and a sixty-five-year prison sentence. Six Dimes and a Nickel tells the incredible true story of his descent into the underworld and his miraculous transformation into a beacon of hope and servant leadership behind bars.",
     palette: ["#15110D", "#241B14", "#5A4630", "#C28B4A"],
     image: "SixDimesAndANickel.jpg",
     position: "left center",
@@ -260,15 +268,18 @@ function SlateDetail({ item, onClose }) {
         <div
           className="ts-modal-poster"
           style={{
-            background: `linear-gradient(160deg, ${item.palette[0]} 0%, ${item.palette[1]} 40%, ${item.palette[2]} 100%)`,
+            background: item.image 
+              ? `url(${item.image}) ${item.position || 'center'}/cover no-repeat`
+              : `linear-gradient(160deg, ${item.palette[0]} 0%, ${item.palette[1]} 40%, ${item.palette[2]} 100%)`,
           }}
         >
+          {item.image && <div style={{ position: 'absolute', inset: 0, background: 'rgba(10,9,8,0.2)', mixBlendMode: 'multiply' }} />}
           <div className="ts-slate-poster-grain" aria-hidden="true" />
         </div>
         <div className="ts-modal-body">
           <div className="ts-eyebrow">{item.format}</div>
           <h3 className="ts-h1" style={{ marginTop: 8 }}>{item.title}</h3>
-          <p className="ts-lead" style={{ marginTop: 16 }}>{item.logline}</p>
+          <p className="ts-lead" style={{ marginTop: 16 }}>{item.longLogline || item.logline}</p>
           <div className="ts-modal-meta">
             <div>
               <div className="ts-caption">Status</div>
@@ -367,62 +378,28 @@ function Founder() {
 
 // ----- Contact -----
 function Contact() {
-  const [sent, setSent] = useState(false);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
-  };
   return (
     <section className="ts-contact" id="contact">
       <div className="ts-section-inner">
-        <div className="ts-contact-grid">
-          <div>
-            <div className="ts-eyebrow">Contact</div>
-            <h2 className="ts-h1 ts-section-title">
-              Got a true<br />story?
-            </h2>
-            <p className="ts-lead ts-section-sub">
-              Investors, talent, or someone with a story to tell — start here.
-            </p>
-            <div className="ts-contact-direct">
-              <div>
-                <div className="ts-caption">Email</div>
-                <a href="mailto:info@truestorystudios.com" className="ts-h4 ts-contact-link">
-                  info@truestorystudios.com
-                </a>
-              </div>
+        <div className="ts-contact-container">
+          <div className="ts-eyebrow">Contact</div>
+          <h2 className="ts-h1 ts-section-title">
+            Got a true story?
+          </h2>
+          <p className="ts-lead ts-section-sub" style={{ maxWidth: '600px', margin: '0 auto 48px' }}>
+            Investors, talent, or someone with a story to tell — we want to hear from you. Reach out directly to start the conversation.
+          </p>
+          <div className="ts-contact-actions">
+            <a href="mailto:info@truestorystudios.com" className="ts-btn ts-btn-primary ts-btn-lg">
+              Email the Studio
+            </a>
+            <div className="ts-contact-direct" style={{ marginTop: '24px' }}>
+              <span className="ts-caption" style={{ display: 'block', marginBottom: '8px' }}>Direct</span>
+              <a href="mailto:info@truestorystudios.com" className="ts-body ts-contact-link" style={{ textDecoration: 'none' }}>
+                info@truestorystudios.com
+              </a>
             </div>
           </div>
-          <form className="ts-form" onSubmit={handleSubmit}>
-            <label className="ts-field">
-              <span className="ts-caption">Name</span>
-              <input type="text" required defaultValue="" />
-            </label>
-            <label className="ts-field">
-              <span className="ts-caption">Email</span>
-              <input type="email" required defaultValue="" />
-            </label>
-            <label className="ts-field">
-              <span className="ts-caption">I am a…</span>
-              <select defaultValue="">
-                <option value="" disabled>Select one</option>
-                <option>Investor</option>
-                <option>Producer / Studio</option>
-                <option>Talent / Representation</option>
-                <option>Story owner / Subject</option>
-                <option>Press</option>
-                <option>Other</option>
-              </select>
-            </label>
-            <label className="ts-field">
-              <span className="ts-caption">Tell us about it</span>
-              <textarea rows="4" defaultValue=""></textarea>
-            </label>
-            <button type="submit" className="ts-btn ts-btn-primary ts-btn-block">
-              {sent ? "Sent — we'll be in touch." : "Send"}
-            </button>
-          </form>
         </div>
       </div>
     </section>

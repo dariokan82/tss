@@ -1009,43 +1009,25 @@ button { font-family: inherit; }
   background: var(--ts-bg-elev);
   border-top: 1px solid var(--ts-border);
 }
-.ts-contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 96px;
-  align-items: start;
+.ts-contact-container {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
-.ts-contact-direct {
-  margin-top: 48px;
+.ts-contact-actions {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  align-items: center;
+  margin-top: 48px;
 }
 .ts-contact-link { color: var(--ts-paper) !important; text-decoration: none; }
 .ts-contact-link:hover { color: var(--ts-ember) !important; }
-.ts-form { display: flex; flex-direction: column; gap: 20px; }
-.ts-field { display: flex; flex-direction: column; gap: 8px; }
-.ts-field input,
-.ts-field select,
-.ts-field textarea {
-  font-family: var(--ts-font-sans);
-  font-size: 16px;
-  background: transparent;
-  color: var(--ts-paper);
-  border: none;
-  border-bottom: 1px solid var(--ts-border-strong);
-  padding: 12px 0;
-  outline: none;
-  transition: border-color var(--ts-dur-1) var(--ts-ease);
-  resize: vertical;
-}
-.ts-field input:focus,
-.ts-field select:focus,
-.ts-field textarea:focus { border-bottom-color: var(--ts-ember); }
-.ts-field select option { background: var(--ts-bg-elev); color: var(--ts-paper); }
+.ts-btn-lg { padding: 18px 48px; font-size: 15px; }
+
 @media (max-width: 720px) {
-  .ts-contact-grid { grid-template-columns: 1fr; gap: 64px; }
+  .ts-contact { padding: 120px 0; }
 }
+
 
 /* ============= FOOTER ============= */
 .ts-footer {
