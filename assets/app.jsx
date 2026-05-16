@@ -6,10 +6,10 @@
 const { useState, useEffect, useRef } = React;
 
 const HERO_IMAGES = [
-  "ThePettys.jpg",
-  "RunningTheAmazon.png",
-  "SixDimesAndANickel.jpg",
-  "DarknessIsMyCandle.png"
+  { src: "ThePettys.jpg" },
+  { src: "RunningTheAmazon.png" },
+  { src: "SixDimesAndANickel.jpg", position: "left center" },
+  { src: "DarknessIsMyCandle.png" },
 ];
 
 
@@ -100,8 +100,8 @@ function Hero() {
     <section className="ts-hero" id="top">
       <div className="ts-hero-carousel">
         {HERO_IMAGES.map((img, i) => (
-          <div key={img} className={`ts-hero-slide ${i === current ? 'is-active' : ''}`}>
-            <img src={img} alt="" />
+          <div key={img.src} className={`ts-hero-slide ${i === current ? 'is-active' : ''}`}>
+            <img src={img.src} alt="" style={img.position ? { objectPosition: img.position } : undefined} />
           </div>
         ))}
       </div>
@@ -147,8 +147,9 @@ const SLATE = [
     title: "The Pettys",
     format: "Series",
     year: "In Development",
+    stage: "Development Ready",
     logline:
-      "The true father-and-son story of Lee and Richard Petty — Yellowstone meets Friday Night Lights, served up at two hundred miles an hour.",
+      "A father and son battle each other at two hundred miles an hour, on their way to becoming America's most famous stock car racing dynasty",
     longLogline:
       "Three generations. One dirt track in Level Cross, North Carolina. The Pettys is the definitive portrait of America's most dominant NASCAR dynasty — a saga of fathers and sons bound together by speed, pride, and the crushing weight of a legendary name. From Lee to Richard to Kyle, this is the true story of how a family built an empire, and what it cost them.",
     palette: ["#1A1410", "#2A1810", "#7A3A1E", "#D06028"],
@@ -160,34 +161,38 @@ const SLATE = [
     title: "Darkness is my Candle",
     format: "Feature Film",
     year: "In Development",
+    stage: "Development Ready",
     logline:
-      "A visceral true story of survival against all odds, where the light of hope must be found in the heart of darkness.",
+      "When a young woman is unjustly committed to Chicago's psychiatric system in the 1960s, surviving the institution proves easier than healing the wounds she carries.",
     longLogline:
-      "In 1960s Chicago, a young woman named Lora is unjustly committed to a state psychiatric institution — not because she is ill, but because no one powerful enough cares to stop it. Based on the memoir by Lora Devore, this is a harrowing true story of survival inside America's broken mental health system, and the extraordinary resilience of a woman who refused to let darkness be the last word.",
+      "In 1960s Chicago, a young woman named Lora is unjustly committed to a state psychiatric institution. Based on the memoir by Lora Devore, this is a harrowing true story of survival inside America's broken mental health system, and the extraordinary resilience of a woman who refused to let darkness be the last word.",
     palette: ["#0A0A0A", "#1A1A1A", "#331100", "#662200"],
     image: "DarknessIsMyCandle.png",
+    position: "left center",
   },
   {
     id: "running-the-amazon",
     title: "Running the Amazon",
     format: "Feature Film",
     year: "In Development",
+    stage: "Pre-Production",
     logline:
-      "1985. A mismatched band of explorers attempts to kayak the Amazon River from source to sea. Deliverance, from 18,000 feet to the Atlantic.",
+      "From the 1985 bestseller, before GPS was a thing, a ragtag group attempts kayaking the Amazon River from source to sea with almost no margin for survival.",
     longLogline:
       "1985. A ragtag band of adventurers attempts something no one has ever done: kayak the entire Amazon River, from its source high in the Andes to the Atlantic Ocean. But the deeper they push into the jungle, the more the expedition fractures — because the man leading them is a charismatic fraud who will use each member's private weakness to keep them in line. Based on Joe Kane's bestselling book, this is an adventure story with a villain at its center, and a writer who may be the only one willing to tell the truth.",
     palette: ["#0F1A14", "#1A2A1E", "#3D5A3A", "#8AB060"],
     image: "RunningTheAmazon.png",
     modalImage: "RTA2.png",
-    position: "left center",
+    position: "center",
   },
   {
     id: "six-dimes",
     title: "Six Dimes and a Nickel",
     format: "Feature Film",
     year: "In Development",
+    stage: "Script Development",
     logline:
-      "The true story of ex-college quarterback and stockbroker Damon West. Shawshank Redemption, for the 21st century.",
+      "A former college quarterback and stockbroker spirals into addiction, earns a sixty-five-year prison sentence, and transforms himself and the prison around him in a way that ultimately sets him free",
     longLogline:
       "Damon West had it all — a football scholarship, a Wall Street career, a life that looked perfect from the outside. Then meth took everything. A sixty-five-year sentence lands him in one of the most violent prisons in Texas, where the only way to survive is to stop being who he was. The Coffee Bean story. The transformation no one saw coming. This is the true story of a man who discovered his real self in the last place anyone would look.",
     palette: ["#15110D", "#241B14", "#5A4630", "#C28B4A"],
@@ -294,7 +299,7 @@ function SlateDetail({ item, onClose }) {
             </div>
             <div>
               <div className="ts-caption">Stage</div>
-              <div className="ts-body">Script Development</div>
+              <div className="ts-body">{item.stage || "Script Development"}</div>
             </div>
           </div>
         </div>
