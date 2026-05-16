@@ -883,8 +883,7 @@ button { font-family: inherit; }
 .ts-modal-card {
   position: relative;
   width: min(960px, 100%);
-  max-height: 88vh;
-  overflow: auto;
+  overflow: hidden;
   background: var(--ts-bg-elev);
   border: 1px solid var(--ts-border);
   display: grid;
@@ -896,10 +895,14 @@ button { font-family: inherit; }
   isolation: isolate;
 }
 .ts-modal-body {
-  padding: 48px;
+  padding: 36px 40px;
   display: flex;
   flex-direction: column;
   gap: 0;
+}
+.ts-modal-body .ts-lead {
+  font-size: var(--ts-fs-18);
+  line-height: 1.5;
 }
 .ts-modal-meta {
   margin-top: 32px;

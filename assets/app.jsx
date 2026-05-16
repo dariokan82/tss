@@ -67,7 +67,7 @@ function Nav({ active = "work" }) {
   return (
     <nav className={`ts-nav ${scrolled ? "is-scrolled" : ""}`}>
       <div className="ts-nav-inner">
-        <Logo height={26} />
+        <Logo height={36} />
         <ul className="ts-nav-links">
           {items.map((it) => (
             <li key={it.id}>
@@ -150,9 +150,10 @@ const SLATE = [
     logline:
       "The true father-and-son story of Lee and Richard Petty — Yellowstone meets Friday Night Lights, served up at two hundred miles an hour.",
     longLogline:
-      "Before the millions in sponsorships and the global fame, there was just a father, a son, and a dirt track in Level Cross. The Pettys is the definitive story of the birth of an American dynasty—a visceral, high-stakes family drama that explores the grit and obsession required to build a legacy from the ground up, one lap at a time.",
+      "Three generations. One dirt track in Level Cross, North Carolina. The Pettys is the definitive portrait of America's most dominant NASCAR dynasty — a saga of fathers and sons bound together by speed, pride, and the crushing weight of a legendary name. From Lee to Richard to Kyle, this is the true story of how a family built an empire, and what it cost them.",
     palette: ["#1A1410", "#2A1810", "#7A3A1E", "#D06028"],
     image: "ThePettys.jpg",
+    modalImage: "pettys2.jpg",
   },
   {
     id: "darkness-is-my-candle",
@@ -162,7 +163,7 @@ const SLATE = [
     logline:
       "A visceral true story of survival against all odds, where the light of hope must be found in the heart of darkness.",
     longLogline:
-      "When a catastrophic event leaves a group stranded in one of the most unforgiving environments on Earth, they must confront not only the elements but the shadows within themselves. Darkness is my Candle is a haunting, cinematic journey into the human spirit's capacity for resilience, proving that even in the deepest void, hope is a choice.",
+      "In 1960s Chicago, a young woman named Lora is unjustly committed to a state psychiatric institution — not because she is ill, but because no one powerful enough cares to stop it. Based on the memoir by Lora Devore, this is a harrowing true story of survival inside America's broken mental health system, and the extraordinary resilience of a woman who refused to let darkness be the last word.",
     palette: ["#0A0A0A", "#1A1A1A", "#331100", "#662200"],
     image: "DarknessIsMyCandle.png",
   },
@@ -174,9 +175,10 @@ const SLATE = [
     logline:
       "1985. A mismatched band of explorers attempts to kayak the Amazon River from source to sea. Deliverance, from 18,000 feet to the Atlantic.",
     longLogline:
-      "Based on the legendary source-to-sea expedition, Running the Amazon follows a team of explorers as they navigate the world's most dangerous river. From the thin air of the Andes to the dense, unpredictable jungle, this is a story of physical endurance, psychological breaking points, and the raw, untamed power of nature.",
+      "1985. A ragtag band of adventurers attempts something no one has ever done: kayak the entire Amazon River, from its source high in the Andes to the Atlantic Ocean. But the deeper they push into the jungle, the more the expedition fractures — because the man leading them is a charismatic fraud who will use each member's private weakness to keep them in line. Based on Joe Kane's bestselling book, this is an adventure story with a villain at its center, and a writer who may be the only one willing to tell the truth.",
     palette: ["#0F1A14", "#1A2A1E", "#3D5A3A", "#8AB060"],
     image: "RunningTheAmazon.png",
+    modalImage: "RTA2.png",
     position: "left center",
   },
   {
@@ -187,9 +189,10 @@ const SLATE = [
     logline:
       "The true story of ex-college quarterback and stockbroker Damon West. Shawshank Redemption, for the 21st century.",
     longLogline:
-      "Damon West had it all—the talent, the looks, and a promising career. But a meth addiction led to a string of robberies and a sixty-five-year prison sentence. Six Dimes and a Nickel tells the incredible true story of his descent into the underworld and his miraculous transformation into a beacon of hope and servant leadership behind bars.",
+      "Damon West had it all — a football scholarship, a Wall Street career, a life that looked perfect from the outside. Then meth took everything. A sixty-five-year sentence lands him in one of the most violent prisons in Texas, where the only way to survive is to stop being who he was. The Coffee Bean story. The transformation no one saw coming. This is the true story of a man who discovered his real self in the last place anyone would look.",
     palette: ["#15110D", "#241B14", "#5A4630", "#C28B4A"],
     image: "SixDimesAndANickel.jpg",
+    modalImage: "west.png",
     position: "left center",
   },
 ];
@@ -240,7 +243,7 @@ function Slate({ onOpen }) {
         <div className="ts-section-head">
           <div className="ts-eyebrow">The Slate · 2026</div>
           <h2 className="ts-h1 ts-section-title">
-            The current<br />work.
+            The Current<br />Slate.
           </h2>
           <p className="ts-lead ts-section-sub">
             Four projects in active development. Each begins with a real person, and a real reason audiences will not look away.
@@ -268,8 +271,8 @@ function SlateDetail({ item, onClose }) {
         <div
           className="ts-modal-poster"
           style={{
-            background: item.image 
-              ? `url(${item.image}) ${item.position || 'center'}/cover no-repeat`
+            background: (item.modalImage || item.image)
+              ? `url(${item.modalImage || item.image}) ${item.position || 'center'}/cover no-repeat`
               : `linear-gradient(160deg, ${item.palette[0]} 0%, ${item.palette[1]} 40%, ${item.palette[2]} 100%)`,
           }}
         >
@@ -393,12 +396,6 @@ function Contact() {
             <a href="mailto:info@truestorystudios.com" className="ts-btn ts-btn-primary ts-btn-lg">
               Email the Studio
             </a>
-            <div className="ts-contact-direct" style={{ marginTop: '24px' }}>
-              <span className="ts-caption" style={{ display: 'block', marginBottom: '8px' }}>Direct</span>
-              <a href="mailto:info@truestorystudios.com" className="ts-body ts-contact-link" style={{ textDecoration: 'none' }}>
-                info@truestorystudios.com
-              </a>
-            </div>
           </div>
         </div>
       </div>

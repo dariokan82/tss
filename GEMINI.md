@@ -17,7 +17,7 @@ This document serves as a guide for the True Story Studios website architecture,
 Data for the site is currently hardcoded at the top of the `app.jsx` file.
 * **`HERO_IMAGES`**: Array of image filenames used in the auto-rotating hero carousel.
 * **`SLATE`**: Array of objects representing the film/series projects. Modifying this array updates the "Work" section and the modal details.
-  * Fields: `id`, `title`, `format` (e.g., "Feature Film", "Series"), `year`, `logline`, `palette` (fallback gradient colors), `image` (poster background), `position` (optional CSS background position).
+  * Fields: `id`, `title`, `format` (e.g., "Feature Film", "Series"), `year`, `logline`, `longLogline` (extended description shown in the modal popup), `palette` (fallback gradient colors), `image` (poster background on the card), `modalImage` (optional alternative image shown in the modal popup; falls back to `image` if omitted), `position` (optional CSS background position).
 
 ## React Components (in `assets/app.jsx`)
 * `<Nav />`: Sticky navigation bar with scroll state.
