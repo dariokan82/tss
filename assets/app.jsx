@@ -143,31 +143,18 @@ function Hero() {
 // ----- Slate -----
 const SLATE = [
   {
-    id: "the-pettys",
-    title: "The Pettys",
-    format: "Series",
-    year: "In Development",
-    stage: "Development Ready",
-    logline:
-      "A father and son battle each other at two hundred miles an hour, on their way to becoming America's most famous stock car racing dynasty",
-    longLogline:
-      "Three generations. One dirt track in Level Cross, North Carolina. The Pettys is the definitive portrait of America's most dominant NASCAR dynasty — a saga of fathers and sons bound together by speed, pride, and the crushing weight of a legendary name. From Lee to Richard to Kyle, this is the true story of how a family built an empire, and what it cost them.",
-    palette: ["#1A1410", "#2A1810", "#7A3A1E", "#D06028"],
-    image: "ThePettys.jpg",
-    modalImage: "pettys2.jpg",
-  },
-  {
-    id: "darkness-is-my-candle",
-    title: "Darkness is my Candle",
+    id: "six-dimes",
+    title: "Six Dimes and a Nickel",
     format: "Feature Film",
     year: "In Development",
-    stage: "Development Ready",
+    stage: "Script Development",
     logline:
-      "When a young woman is unjustly committed to Chicago's psychiatric system in the 1960s, surviving the institution proves easier than healing the wounds she carries.",
+      "A former college quarterback and stockbroker spirals into addiction, earns a sixty-five-year prison sentence, and transforms himself and the prison around him in a way that ultimately sets him free",
     longLogline:
-      "In 1960s Chicago, a young woman named Lora is unjustly committed to a state psychiatric institution. Based on the memoir by Lora Devore, this is a harrowing true story of survival inside America's broken mental health system, and the extraordinary resilience of a woman who refused to let darkness be the last word.",
-    palette: ["#0A0A0A", "#1A1A1A", "#331100", "#662200"],
-    image: "DarknessIsMyCandle.png",
+      "Damon West had it all — a football scholarship, a Wall Street career, a life that looked perfect from the outside. Then meth took everything. A sixty-five-year sentence lands him in one of the most violent prisons in Texas, where the only way to survive is to stop being who he was. The Coffee Bean story. The transformation no one saw coming. This is the true story of a man who discovered his real self in the last place anyone would look.",
+    palette: ["#15110D", "#241B14", "#5A4630", "#C28B4A"],
+    image: "SixDimesAndANickel.jpg",
+    modalImage: "west.png",
     position: "left center",
   },
   {
@@ -186,19 +173,32 @@ const SLATE = [
     position: "center",
   },
   {
-    id: "six-dimes",
-    title: "Six Dimes and a Nickel",
+    id: "darkness-is-my-candle",
+    title: "Darkness is my Candle",
     format: "Feature Film",
     year: "In Development",
-    stage: "Script Development",
+    stage: "Development Ready",
     logline:
-      "A former college quarterback and stockbroker spirals into addiction, earns a sixty-five-year prison sentence, and transforms himself and the prison around him in a way that ultimately sets him free",
+      "When a young woman is unjustly committed to Chicago's psychiatric system in the 1960s, surviving the institution proves easier than healing the wounds she carries.",
     longLogline:
-      "Damon West had it all — a football scholarship, a Wall Street career, a life that looked perfect from the outside. Then meth took everything. A sixty-five-year sentence lands him in one of the most violent prisons in Texas, where the only way to survive is to stop being who he was. The Coffee Bean story. The transformation no one saw coming. This is the true story of a man who discovered his real self in the last place anyone would look.",
-    palette: ["#15110D", "#241B14", "#5A4630", "#C28B4A"],
-    image: "SixDimesAndANickel.jpg",
-    modalImage: "west.png",
+      "In 1960s Chicago, a young woman named Lora is unjustly committed to a state psychiatric institution. Based on the memoir by Lora Devore, this is a harrowing true story of survival inside America's broken mental health system, and the extraordinary resilience of a woman who refused to let darkness be the last word.",
+    palette: ["#0A0A0A", "#1A1A1A", "#331100", "#662200"],
+    image: "DarknessIsMyCandle.png",
     position: "left center",
+  },
+  {
+    id: "the-pettys",
+    title: "The Pettys",
+    format: "Series",
+    year: "In Development",
+    stage: "Development Ready",
+    logline:
+      "A father and son battle each other at two hundred miles an hour, on their way to becoming America's most famous stock car racing dynasty",
+    longLogline:
+      "Three generations. One dirt track in Level Cross, North Carolina. The Pettys is the definitive portrait of America's most dominant NASCAR dynasty — a saga of fathers and sons bound together by speed, pride, and the crushing weight of a legendary name. From Lee to Richard to Kyle, this is the true story of how a family built an empire, and what it cost them.",
+    palette: ["#1A1410", "#2A1810", "#7A3A1E", "#D06028"],
+    image: "ThePettys.jpg",
+    modalImage: "pettys2.jpg",
   },
 ];
 
@@ -233,7 +233,7 @@ function SlateCard({ item, index, onOpen }) {
       <div className="ts-slate-meta">
         <div className="ts-slate-format">
           <span className="ts-caption">{item.format}</span>
-          <span className="ts-caption ts-slate-year">{item.year}</span>
+          <span className="ts-caption ts-slate-year">{item.stage}</span>
         </div>
         <p className="ts-slate-logline">{item.logline}</p>
       </div>
