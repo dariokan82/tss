@@ -366,14 +366,14 @@ function Founder() {
             />
           </div>
           <div className="ts-founder-tag">
-            <span className="ts-caption">DAC · Founder &amp; CEO</span>
+            <span className="ts-caption">Founder &amp; CEO</span>
           </div>
         </div>
         <div className="ts-founder-text">
           <div className="ts-eyebrow">The face of True Story</div>
           <h2 className="ts-h2" style={{ marginTop: 16 }}>David Aaron Cohen</h2>
           <p className="ts-lead" style={{ marginTop: 16 }}>
-            I’m building a studio to deliver the stories you cannot forget. Stories that defy gravity, that break your heart and piece it back together, then take you to heights you could never imagine: like Jack and Rose on the prow of the Titanic - hands free, reaching for the sky.
+            I’m building a studio to deliver the stories you cannot forget. Stories that defy gravity, break your heart, and piece it back together—taking you to heights you never imagined. Because your next favorite movie begins with True Story Studios.
           </p>
           <p className="ts-body" style={{ marginTop: 16, color: "var(--ts-fg-2)" }}>
             Selected credits: <em>The Devil's Own</em> (Harrison Ford, Brad Pitt). <em>Friday Night Lights</em> (Billy Bob Thornton). <em>American Underdog</em> (Zachary Levi, Anna Paquin).
